@@ -1,4 +1,4 @@
-from mgym.envs.registration import register
+from gym.envs.registration import register
 
 register(
     id='TicTacToe-v0',

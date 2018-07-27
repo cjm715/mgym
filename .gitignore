@@ -1,3 +1,5 @@
 .direnv
 .envrc
 mgym.egg-info
+__pycache__
+.ipynb_checkpoints

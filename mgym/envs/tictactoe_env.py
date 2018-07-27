@@ -3,11 +3,16 @@ from gym import error, spaces, utils
 from gym.utils import seeding
 
 
-class TicTacToe(gym.Env):
+class TicTacToeEnv(gym.Env):
+    """
+    Simple TicTacToeEnv as toytext environment.
+    """
     metadata = {'render.modes': ['human']}
 
     def __init__(self):
-        pass
+        self.shape = (3, 3)
+        nS = 3**3
+        nA = 9
 
     def step(self, action):
         pass

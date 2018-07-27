@@ -10,5 +10,9 @@ To install package, use the following commands:
 * `cd mgym/`
 * `pip install -e .`
 
+## Environments
+* TicTacToe-v0
+
+
 ## Testing
 To run tests, install pytest with `pip install pytest` and run `python -m pytest`

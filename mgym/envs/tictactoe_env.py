@@ -13,6 +13,7 @@ class TicTacToeEnv(gym.Env):
         self.shape = (3, 3)
         nS = 3**3
         nA = 9
+        agents = {}
 
     def step(self, action):
         pass

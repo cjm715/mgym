@@ -1,4 +1,4 @@
-# Multiagent gym enviroments
+# Multiagent gym environments
 
 ## Dependencies
 * `gym`

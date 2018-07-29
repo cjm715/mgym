@@ -7,7 +7,7 @@ class MEnv(object):
     How is this different than the normal Gym Env class?
     ====================================================
 
-    Multi-agent Gym class adapted from the main OpenAI single-agent Gym class.
+    Multi-agent Gym class is adapted from the main OpenAI single-agent Gym class.
     The main difference is that the reward is no longer required to be a single float but left
     as an arbitrary object to allow for the possibility of passing multiple rewards
     to multiple agents. Otherwise, this class is functionally exactly the same as the original gym

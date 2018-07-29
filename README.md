@@ -34,15 +34,18 @@ while True:
 ## How are Multi-agent environments different than Single-agent environments?
 
 When dealing with multiple agents, the environment must communicate which agent(s)
-can act at each time step. Thus, this is can be incorporated into observation space.
+can act at each time step. Thus, this information must be incorporated into observation space.
 
 There are a few multi-agent game structures that are common:
 
 * one-at-a-time play
 * simultaneous play
 
-In the TicTacToe example above, this is an instance of one-at-a-time play. `fullobs` is
-a tuple `(agent, obs)`.
+In the TicTacToe example above, this is an instance of one-at-a-time play. The `fullobs` is
+a tuple `(next_agent, obs)`. The variable `next_agent` indicates which agent will act next.
+`obs` is the typical observation of the environment state. The action `a` is also a tuple given
+by `a = (acting_agent, action)` where the `acting_action`
+is the agent acting with the action given by variable `action`.
 
 ## Testing
 To run tests, install pytest with `pip install pytest` and run `python -m pytest`

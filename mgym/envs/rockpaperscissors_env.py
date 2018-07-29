@@ -9,8 +9,8 @@ PAPER = 1
 SCISSORS = 2
 
 WORD_FOR_ACTION = {0: 'ROCK',
-                           1: 'PAPER',
-                           2: 'SCISSORS'}
+                   1: 'PAPER',
+                   2: 'SCISSORS'}
 
 
 class RockPaperScissorsEnv(mgym.MEnv):
@@ -25,8 +25,8 @@ class RockPaperScissorsEnv(mgym.MEnv):
         self.nS = 1
         self.record_outcome = None
         # Joint action space across all players
-        self.action_space = np.Tuple(
-            spaces.Discrete(self.nA), spaces.Discrete(self.nA))
+        self.action_space = spaces.Tuple((
+            spaces.Discrete(self.nA), spaces.Discrete(self.nA)))
         self.observation_space = spaces.Discrete(self.nS)
 
     def reset(self):
@@ -47,20 +47,19 @@ class RockPaperScissorsEnv(mgym.MEnv):
         return obs, rewards, done, {}
 
     def render(self):
-        who_won, action = self.record_outcome
-        if who_won == None:
-            message = 'Game has not started.')
+        if self.record_outcome == None:
+            print('Game has not started.')
         else:
+            who_won, action = self.record_outcome
+            print('Player 1: ' + WORD_FOR_ACTION[action[0]])
+            print('Player 2: ' + WORD_FOR_ACTION[action[1]])
+            print(' ')
             if who_won == None:
-                message='Game is Tied.' + 'Player 1 played ' + WORD_FOR_ACTION[action[0]] '.'
-                + 'Player 2 played' + WORD_FOR_ACTION[action[1]].
-            elif who_won=0:
-                message='Player 1 wins!' + 'Player 1 played ' + WORD_FOR_ACTION[action[0]] '.'
-                + 'Player 2 played' + WORD_FOR_ACTION[action[1]].
-            elif who_won=1:
-                message='Player 2 wins!' + 'Player 1 played ' + WORD_FOR_ACTION[action[0]] '.'
-                + 'Player 2 played' + WORD_FOR_ACTION[action[1]].
-        print(message)
+                print('Game is tied.')
+            elif who_won == 0:
+                print('Player 1 won!')
+            elif who_won == 1:
+                print('Player 2 won!')
 
     def _get_rewards(self, action):
         # Cases where player 1 wins

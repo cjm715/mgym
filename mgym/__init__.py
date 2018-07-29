@@ -5,3 +5,8 @@ register(
     id='TicTacToe-v0',
     entry_point='mgym.envs:TicTacToeEnv',
 )
+
+register(
+    id='RPS-v0',
+    entry_point='mgym.envs:RockPaperScissorsEnv',
+)

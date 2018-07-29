@@ -47,6 +47,17 @@ MASK_LIST = [
 class TicTacToeEnv(mgym.MEnv):
     """
     Simple TicTacToeEnv as toytext environment.
+
+    The action space is spaces.Tuple((spaces.Discrete(self.n),spaces.Discrete(self.nA)))
+    where self.n is the number of agents (=2) and self.nA is the number of actions (=9).
+    The first index of the tuple represents which agent is acting and the second
+    index is its action.
+
+    The oberservation space is spaces.Tuple((spaces.Discrete(self.n),spaces.Discrete(self.nA)))
+    where self.n is the number of agents (=2) and self.nS is the number of board positions (=3**9).
+    The first index of the tuple represents which agent is acting next and the second
+    index is the current state of the game. It is fully observable to both players.
+
     """
     metadata = {'render.modes': ['human']}
 
@@ -97,7 +108,6 @@ class TicTacToeEnv(mgym.MEnv):
         return observation_tuple
 
     def render(self, mode='human', close=False):
-        #print('Player O ') if self.active_agent else print('Player X')
         for i in range(3):
             row_str = ""
             for j in range(3):

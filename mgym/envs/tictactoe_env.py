@@ -54,10 +54,9 @@ class TicTacToeEnv(mgym.MEnv):
         self.n = 2  # number of agents
         self.nA = 9  # number of actions per player
         self.nS = 3**9  # number of observations per player
-        self.action_space = spaces.Tuple((spaces.Discrete(self.nA),
+        self.action_space = spaces.Tuple((spaces.Discrete(self.n),
                                           spaces.Discrete(self.nA)))
         self.observation_space = spaces.Tuple((spaces.Discrete(self.n),
-                                               spaces.Discrete(self.nS),
                                                spaces.Discrete(self.nS)))
         self.grid = None
         self.active_agent = None
@@ -65,33 +64,20 @@ class TicTacToeEnv(mgym.MEnv):
 
     def step(self, action_tuple):
 
-        if not self._action_is_valid(action_tuple):
-            observation = self._observe_grid()
-            observation_list = [self.active_agent]
-            for _ in range(self.n):
-                observation_list.append(observation)
+        self._update_grid(action_tuple)
 
+        if self._game_over():
+            observation = self._observe_grid()
+            observation_list = [self.active_agent, observation]
             reward_list = [0 for _ in range(self.n)]
+            reward_list[self.active_agent] = 1
             done = True
         else:
-            self._update_grid(action_tuple)
-
-            if self._game_over():
-                observation = self._observe_grid()
-                observation_list = [self.active_agent]
-                for _ in range(self.n):
-                    observation_list.append(observation)
-                reward_list = [0 for _ in range(self.n)]
-                reward_list[self.active_agent] = 1
-                done = True
-            else:
-                observation = self._observe_grid()
-                self.active_agent = int((self.active_agent + 1) % 2)
-                observation_list = [self.active_agent]
-                for _ in range(self.n):
-                    observation_list.append(observation)
-                reward_list = [0 for _ in range(self.n)]
-                done = False
+            observation = self._observe_grid()
+            self.active_agent = int((self.active_agent + 1) % 2)
+            observation_list = [self.active_agent, observation]
+            reward_list = [0 for _ in range(self.n)]
+            done = False
 
         return tuple(observation_list), tuple(reward_list), done, {}
 
@@ -99,9 +85,7 @@ class TicTacToeEnv(mgym.MEnv):
         self.grid = np.zeros(self.shape)
         self.active_agent = int(0)
         observation = self._observe_grid()
-        observation_list = [self.active_agent]
-        for _ in range(self.n):
-            observation_list.append(observation)
+        observation_list = [self.active_agent, observation]
         observation_tuple = tuple(observation_list)
         return observation_tuple
 
@@ -112,17 +96,6 @@ class TicTacToeEnv(mgym.MEnv):
                 row_str += ("| " + LOOK_UP_SYM[self.grid[i, j]] + " ")
             row_str += "|\n"
             print(row_str)
-
-    def _action_is_valid(self, action_tuple):
-        for i, action in enumerate(action_tuple):
-            if i != self.active_agent:
-                assert None == action_tuple[i]
-            else:
-                assert not (None == action_tuple[i])
-                j, k = self._action_to_grid_indices(action)
-                assert self.grid[j, k] == EMPTY
-
-        return True
 
     def _observe_grid(self):
         s = 0
@@ -137,11 +110,12 @@ class TicTacToeEnv(mgym.MEnv):
         return i, j
 
     def _update_grid(self, action_tuple):
-        for i, action in enumerate(action_tuple):
-            if not (action == None):
-                j, k = self._action_to_grid_indices(action)
-                if self.grid[j, k] == EMPTY:
-                    self.grid[j, k] = self.agent_sym[i]
+        agent = action_tuple[0]
+        action = action_tuple[1]
+        assert agent == self.active_agent
+        j, k = self._action_to_grid_indices(action)
+        assert self.grid[j, k] == EMPTY
+        self.grid[j, k] = self.agent_sym[agent]
 
     def _game_over(self):
         # check for 3 in a row

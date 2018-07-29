@@ -67,16 +67,12 @@ class TicTacToeEnv(mgym.MEnv):
 
         self._update_grid(action_tuple)
         observation = self._observe_grid()
-        won, who_won = self._agent_won()
+        won, _ = self._agent_won()
 
         if won:
             reward_list = [0 for _ in range(self.n)]
             reward_list[self.active_agent] = 1
             done = True
-            if who_won == 0:
-                print('X WON!')
-            elif who_won == 1:
-                print('O WON!')
             return tuple([self.active_agent, observation]), tuple(reward_list), done, {}
 
         active_agent_old = self.active_agent
@@ -85,7 +81,6 @@ class TicTacToeEnv(mgym.MEnv):
         if self._no_available_actions():
             reward_list = [0 for _ in range(self.n)]
             done = True
-            print('DRAW')
             return tuple([active_agent_old, observation]), tuple(reward_list), done, {}
 
         observation_list = [self.active_agent, observation]

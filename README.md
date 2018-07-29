@@ -20,10 +20,8 @@ import gym
 import mgym
 import random
 
-# initialize
 env = gym.make('TicTacToe-v0')
 fullobs = env.reset()
-env.render()
 while True:
     print('Player O ') if fullobs[0] else print('Player X')
     a = random.choice(env.get_available_actions())

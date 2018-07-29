@@ -16,7 +16,6 @@ WORD_FOR_ACTION = {0: 'ROCK',
 class RockPaperScissorsEnv(mgym.MEnv):
 
     def __init__(self):
-
         self.n = 2  # number of players
         self.nA = 3  # number of actions per player(rock, paper, or scissors)
         # There are no states! It is a single-shot game. To fit env clas we must

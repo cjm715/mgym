@@ -32,7 +32,7 @@ while True:
         break
 ```
 
-## How are Multi-agent environments different than Single-agent environments?
+## How are multi-agent environments different than single-agent environments?
 
 When dealing with multiple agents, the environment must communicate which agent(s)
 can act at each time step. This information must be incorporated into observation space.

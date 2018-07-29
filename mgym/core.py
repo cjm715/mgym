@@ -11,14 +11,11 @@ class MEnv(object):
     The main difference is that the reward is no longer required to be a single float but left
     as an arbitrary object to allow for the possibility of passing multiple rewards
     to multiple agents. Otherwise, this class is functionally exactly the same as the original gym
-    Env class. 
+    Env class.
 
     Note that it is important to indicate which agents can act at each time step. This
     must be incorporated into the observation space. This can most naturally be done
     with a Tuple space.
-
-    The observation spaces and action spaces are interpreted as *joint* spaces across
-    all individual spaces for all agents.
 
     ====================================================
 

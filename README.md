@@ -38,8 +38,8 @@ can act at each time step. This information must be incorporated into observatio
 Conversely, the environment must know which agents are performing actions. Therefore this must
 be communicated in the action passed to the environment. The form of the API used for passing this information depends on the type of game. The two types are
 
-* one-at-a-time play (like TicTacToe, Chess, Go, Monopoly, etc) or
-* simultaneous play (like Soccer, Basketball, etc).
+* one-at-a-time play (like TicTacToe, Go, Monopoly, etc) or
+* simultaneous play (like Soccer, Basketball, Normal form games, etc).
 
 In the TicTacToe example above, this is an instance of one-at-a-time play. The `fullobs` is
 a tuple `(next_agent, obs)`. The variable `next_agent` indicates which agent will act next.

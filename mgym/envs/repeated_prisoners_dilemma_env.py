@@ -16,16 +16,17 @@ class RepeatedPrisonersDilemmaEnv(mgym.MEnv):
         self.n = 2
         self.nA = 2
         self.nS = 1
-        self.m = 100  # number of iterations
+        self.m = None  # number of iterations
         self.iteration_number = 0
         self.record_outcome = None
         self.action_space = spaces.Tuple(
             (spaces.Discrete(self.nA), spaces.Discrete(self.nA)))
         self.observation_space = spaces.Discrete(self.nS)
 
-    def reset(self):
+    def reset(self, total_iterations=100):
         self.iteration_number = 0
         self.record_outcome = None
+        self.m = total_iterations
         return 0
 
     def step(self, action):
@@ -42,7 +43,7 @@ class RepeatedPrisonersDilemmaEnv(mgym.MEnv):
 
         self.record_outcome = (self.iteration_number, action, reward)
 
-        if self.iteration_number >= self.m:
+        if self.iteration_number >= (self.m - 1):
             done = True
 
         self.iteration_number += 1

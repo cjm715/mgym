@@ -13,8 +13,8 @@ pip install -e .
 
 ## Environments
 * TicTacToe-v0
-* RockPaperScissors-v0 
-* RepeatedPrisonersDilemma-v0
+* RockPaperScissors-v0
+* PrisonersDilemma-v0
 
 ## Example
 ```python

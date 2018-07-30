@@ -14,6 +14,9 @@ WORD_FOR_ACTION = {0: 'ROCK',
 
 
 class RockPaperScissorsEnv(mgym.MEnv):
+    '''
+    Repeated Rock-Paper-Scissors
+    '''
 
     def __init__(self):
         self.n = 2  # number of players
@@ -48,10 +51,10 @@ class RockPaperScissorsEnv(mgym.MEnv):
             who_won = None
         self.record_outcome = (who_won, action)
 
-        if iteration >= (self.total_iterations - 1):
+        if self.iteration >= (self.total_iterations - 1):
             done = True
 
-        iteration += 1
+        self.iteration += 1
         return obs, rewards, done, {}
 
     def render(self):
@@ -59,9 +62,9 @@ class RockPaperScissorsEnv(mgym.MEnv):
             print('Game has not started.')
         else:
             who_won, action = self.record_outcome
+            print(' ')
             print('Player 1: ' + WORD_FOR_ACTION[action[0]])
             print('Player 2: ' + WORD_FOR_ACTION[action[1]])
-            print(' ')
             if who_won == None:
                 print('Game is tied.')
             elif who_won == 0:

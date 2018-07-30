@@ -7,6 +7,11 @@ register(
 )
 
 register(
-    id='RPS-v0',
+    id='RockPaperScissors-v0',
     entry_point='mgym.envs:RockPaperScissorsEnv',
+)
+
+register(
+    id='RepeatedPrisonersDilemma-v0',
+    entry_point='mgym.envs:RepeatedPrisonersDilemmaEnv',
 )

@@ -1,3 +1,3 @@
 from mgym.envs.tictactoe_env import TicTacToeEnv
 from mgym.envs.rockpaperscissors_env import RockPaperScissorsEnv
-from mgym.envs.repeated_prisoners_dilemma_env import RepeatedPrisonersDilemmaEnv
+from mgym.envs.prisoners_dilemma_env import PrisonersDilemmaEnv

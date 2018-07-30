@@ -12,6 +12,6 @@ register(
 )
 
 register(
-    id='RepeatedPrisonersDilemma-v0',
-    entry_point='mgym.envs:RepeatedPrisonersDilemmaEnv',
+    id='PrisonersDilemma-v0',
+    entry_point='mgym.envs:PrisonersDilemmaEnv',
 )

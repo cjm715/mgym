@@ -23,19 +23,23 @@ class RockPaperScissorsEnv(mgym.MEnv):
         # one state.
         self.nS = 1
         self.record_outcome = None
+        self.iteration = 0
+        self.total_iterations = None
         # Joint action space across all players
         self.action_space = spaces.Tuple((
             spaces.Discrete(self.nA), spaces.Discrete(self.nA)))
         self.observation_space = spaces.Discrete(self.nS)
 
-    def reset(self):
+    def reset(self, total_iterations=100):
         self.record_outcome = None
+        self.iteration = 0
+        self.total_iterations = total_iterations
         return 0
 
     def step(self, action):
         obs = 0
         rewards = self._get_rewards(action)
-        done = True
+        done = False
         if rewards[0] > rewards[1]:
             who_won = 0
         elif rewards[1] > rewards[0]:
@@ -43,6 +47,11 @@ class RockPaperScissorsEnv(mgym.MEnv):
         else:
             who_won = None
         self.record_outcome = (who_won, action)
+
+        if iteration >= (self.total_iterations - 1):
+            done = True
+
+        iteration += 1
         return obs, rewards, done, {}
 
     def render(self):

@@ -42,7 +42,7 @@ import gym
 import mgym
 
 env = gym.make('MatchingPennies-v0')
-obs = env.reset(3)
+env.reset(3)
 while True:
     a = env.action_space.sample()
     _,r,done,_ = env.step(a)

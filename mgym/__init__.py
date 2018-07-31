@@ -28,5 +28,5 @@ register(
 
 register(
     id='MatchingPennies-v0',
-    entry_point='mgym.envs:MatchingPennies',
+    entry_point='mgym.envs:MatchingPenniesEnv',
 )

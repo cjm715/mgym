@@ -36,6 +36,17 @@ while True:
         break
 ```
 
+
+```python
+env = gym.make('MatchingPennies-v0')
+obs = env.reset(3)
+while True:
+    a = env.action_space.sample()
+    _,r,done,_ = env.step(a)
+    env.render()
+    if done:
+        break
+```
 ## How are multi-agent environments different than single-agent environments?
 
 When dealing with multiple agents, the environment must communicate which agent(s)

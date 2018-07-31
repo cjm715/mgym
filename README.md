@@ -15,6 +15,7 @@ pip install -e .
 * TicTacToe-v0
 * RockPaperScissors-v0
 * PrisonersDilemma-v0
+* BattleOfTheSexes-v0
 
 ## Example
 ```python

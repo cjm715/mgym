@@ -16,6 +16,7 @@ pip install -e .
 * RockPaperScissors-v0
 * PrisonersDilemma-v0
 * BattleOfTheSexes-v0
+* StagHunt-v0
 
 ## Example
 ```python

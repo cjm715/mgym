@@ -75,4 +75,4 @@ class RepeatedTwoPlayerGame(mgym.MEnv):
                 print('Player 2 won!')
 
     def _get_rewards(self, action):
-        return self.U[action[0], action[1]]
+        return self.U[action[0]][action[1]]

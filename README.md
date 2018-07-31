@@ -38,6 +38,9 @@ while True:
 
 
 ```python
+import gym
+import mgym
+
 env = gym.make('MatchingPennies-v0')
 obs = env.reset(3)
 while True:

@@ -17,5 +17,5 @@ class StagHuntEnv(repeatedgame.RepeatedTwoPlayerGame):
         U = [[(2, 2), (0, 1)],
              [(1, 0), (1, 1)]]
 
-        super(RockPaperScissorsEnv, self).__init__(
+        super(StagHuntEnv, self).__init__(
             U, WORD_FOR_ACTION=WORD_FOR_ACTION)

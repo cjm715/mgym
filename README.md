@@ -17,6 +17,7 @@ pip install -e .
 * PrisonersDilemma-v0
 * BattleOfTheSexes-v0
 * StagHunt-v0
+* MatchingPennies-v0
 
 ## Example
 ```python

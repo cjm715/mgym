@@ -76,3 +76,6 @@ class RepeatedTwoPlayerGame(mgym.MEnv):
 
     def _get_rewards(self, action):
         return self.U[action[0]][action[1]]
+
+    def show_utility(self):
+        print(self.U)

@@ -25,3 +25,8 @@ register(
     id='StagHunt-v0',
     entry_point='mgym.envs:StagHuntEnv',
 )
+
+register(
+    id='MatchingPennies-v0',
+    entry_point='mgym.envs:MatchingPennies',
+)

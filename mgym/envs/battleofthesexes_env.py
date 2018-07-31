@@ -17,5 +17,5 @@ class BattleOfTheSexesEnv(repeatedgame.RepeatedTwoPlayerGame):
         U = [[(3, 2), (0, 0)],
              [(0, 2), (2, 3)]]
 
-        super(RockPaperScissorsEnv, self).__init__(
+        super(BattleOfTheSexesEnv, self).__init__(
             U, WORD_FOR_ACTION=WORD_FOR_ACTION)

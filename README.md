@@ -51,7 +51,8 @@ while True:
         break
 ```
 
-See further examples in mgym/examples/examples.ipynb
+See further examples in `mgym/examples/examples.ipynb`.
+
 ## How are multi-agent environments different than single-agent environments?
 
 When dealing with multiple agents, the environment must communicate which agent(s)

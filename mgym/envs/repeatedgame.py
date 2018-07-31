@@ -6,14 +6,15 @@ import mgym
 import copy
 
 
-class RepeatedTwoPlayerSymmetricGame(mgym.MEnv):
+class RepeatedTwoPlayerGame(mgym.MEnv):
 
     def __init__(self, U, WORD_FOR_ACTION=None):
-        self.U = U  # Utility matrix (np array with shape (nA,nA) )
+        # Utility matrix (list with shape (nA,nA) and tuple entries (reward1,reward2))
+        self.U = U
         self.n = 2  # number of players
         # number of actions per player(rock, paper, or scissors)
-        self.nA = self.U.shape[0]
-        assert self.U.shape[0] == self.U.shape[1]
+        self.nA = len(self.U)
+        assert len(self.U) == len(self.U[0])
         # There are no states! It is a single-shot game. To fit env clas we must
         # specify an observation space anyway. Thus we will say there is one state and always
         # one state.
@@ -74,4 +75,4 @@ class RepeatedTwoPlayerSymmetricGame(mgym.MEnv):
                 print('Player 2 won!')
 
     def _get_rewards(self, action):
-        return (self.U[action[0], action[1]], self.U[action[1], action[0]])
+        return self.U[action[0], action[1]]

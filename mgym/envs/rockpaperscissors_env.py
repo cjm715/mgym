@@ -6,7 +6,7 @@ import mgym
 from mgym.envs import repeatedgame
 
 
-class RockPaperScissorsEnv(repeatedgame.RepeatedTwoPlayerSymmetricGame):
+class RockPaperScissorsEnv(repeatedgame.RepeatedTwoPlayerGame):
     '''
     Repeated Rock-Paper-Scissors
     '''
@@ -15,9 +15,9 @@ class RockPaperScissorsEnv(repeatedgame.RepeatedTwoPlayerSymmetricGame):
         WORD_FOR_ACTION = {0: 'ROCK',
                            1: 'PAPER',
                            2: 'SCISSORS'}
-        U = np.array([[0, -1,  1],
-                      [1,  0, -1],
-                      [-1, 1,  0]])
+        U = [[(0, 0), (-1, 1),  (1, -1)],
+             [(1, -1),  (0, 0),  (-1, 1)],
+             [(-1, 1), (1, -1),   (0, 0)]]
 
         super(RockPaperScissorsEnv, self).__init__(
             U, WORD_FOR_ACTION=WORD_FOR_ACTION)

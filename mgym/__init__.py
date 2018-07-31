@@ -15,3 +15,8 @@ register(
     id='PrisonersDilemma-v0',
     entry_point='mgym.envs:PrisonersDilemmaEnv',
 )
+
+register(
+    id='BattleOfTheSexes-v0',
+    entry_point='mgym.envs:PrisonersDilemmaEnv',
+)

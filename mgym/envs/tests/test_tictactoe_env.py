@@ -2,9 +2,10 @@ from mgym.envs.tictactoe_env import TicTacToeEnv
 import numpy as np
 import random
 import pytest
+import gym
 
 
-def test_that_tictactoe_run_without_error(env_name):
+def test_that_tictactoe_run_without_error():
     env = gym.make('TicTacToe-v0')
     fullobs = env.reset()
     while True:

@@ -18,5 +18,10 @@ register(
 
 register(
     id='BattleOfTheSexes-v0',
-    entry_point='mgym.envs:PrisonersDilemmaEnv',
+    entry_point='mgym.envs:BattleOfTheSexesEnv',
+)
+
+register(
+    id='StagHunt-v0',
+    entry_point='mgym.envs:StagHuntEnv',
 )

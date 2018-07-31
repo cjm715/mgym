@@ -12,7 +12,7 @@ import pytest
     'StagHunt-v0',
     'MatchingPennies-v0',
 ])
-def test_that_all_2test_that_all_2player_game_theory_environments_run_without_error(env_name):
+def test_that_all_2player_game_theory_environments_run_without_error(env_name):
 
     env = gym.make(env_name)
     obs = env.reset(3)

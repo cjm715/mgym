@@ -19,7 +19,8 @@ pip install -e .
 * StagHunt-v0
 * MatchingPennies-v0
 
-## Example
+
+## Examples
 ```python
 import gym
 import mgym

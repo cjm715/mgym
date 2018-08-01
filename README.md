@@ -1,5 +1,7 @@
 # Multi-agent gym environments
 
+I created these environments to get a better understanding of MARL (multi-agent reinforcement learning) algorithms on relatively simple environments. 
+
 ## Dependencies
 * `gym`
 * `numpy`

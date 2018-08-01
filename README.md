@@ -1,5 +1,10 @@
 # Multi-agent gym environments
 
+The point of this repository is for educational purposes. I created these environments
+to get a better understanding of MARL (multi-agent reinforcement learning) algorithms
+on relatively simple environments. 
+
+
 ## Dependencies
 * `gym`
 * `numpy`

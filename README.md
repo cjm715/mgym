@@ -1,6 +1,6 @@
 # Multi-agent gym environments
 
-A collection of multi-agent gym environments
+This repository has a collection of multi-agent gym environments. DISCLAIMER: This project is still a work-in-progress.
 
 ## Dependencies
 * `gym`

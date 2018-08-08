@@ -20,7 +20,7 @@ pip install -e .
 * [x] BattleOfTheSexes-v0
 * [x] StagHunt-v0
 * [x] MatchingPennies-v0
-* [ ] TravelingCheckers-v0 ([Introduced SFI's complexity challenge](https://www.complexityexplorer.org/challenges/1-launch-of-the-complexity-challenges/submissions))
+* [ ] TravelingCheckers-v0 ([Introduced in SFI's complexity challenge](https://www.complexityexplorer.org/challenges/1-launch-of-the-complexity-challenges/submissions))
 * [ ] ElFarol-v0
 * [ ] Wolfpack-v0
 * [ ] Fruit-gathering-v0

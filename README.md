@@ -14,12 +14,19 @@ pip install -e .
  ```
 
 ## Environments
-* TicTacToe-v0
-* RockPaperScissors-v0
-* PrisonersDilemma-v0
-* BattleOfTheSexes-v0
-* StagHunt-v0
-* MatchingPennies-v0
+* [x] TicTacToe-v0
+* [x] RockPaperScissors-v0
+* [x] PrisonersDilemma-v0
+* [x] BattleOfTheSexes-v0
+* [x] StagHunt-v0
+* [x] MatchingPennies-v0
+* [ ] TravelingCheckers-v0 ([Introduced SFI's complexity challenge](https://www.complexityexplorer.org/challenges/1-launch-of-the-complexity-challenges/submissions))
+* [ ] ElFarol-v0
+* [ ] Wolfpack-v0
+* [ ] Fruit-gathering-v0
+* [ ] Chess-v0
+* [ ] Checkers-v0
+* [ ] Snake-v0 ([See OpenAI's Request-for-research](https://blog.openai.com/requests-for-research-2/))
 
 
 ## Examples

@@ -1,4 +1,4 @@
-"""Taveling Checkers Environment."""
+"""Traveling Checkers Environment."""
 import mgym
 
 
@@ -6,8 +6,11 @@ class TravelingCheckersEnv(mgym.MEnv):
     """An environment of traveling checkers on a gridworld mimicing traffic.
 
     Original environnemt was introduced as a research challenge by the Santa Fe
-    Institute's complexity challenge program [CC]. The game is described as
-    follows: You have a M x M square checkerboard and there can be at most one
+    Institute's Complexity Challenge [CC]. The environment presented is
+    slightly modified. The grid size is left arbitrary and the reward design
+    was originally left open-ended.
+
+    Overview: You have a M x M square checkerboard and there can be at most one
     checker on any given square at any time. At each time step one or more
     checkers randomly appear on squares in the left-most column of the board.
     When a checker arrives on the left-most column it is randomly assigned to a
@@ -31,12 +34,16 @@ class TravelingCheckersEnv(mgym.MEnv):
     individual agent actions :
         stay (0), south (1), north (2), east (3), and west (4)
     individual rewards :
-        agent recieves a reward of -1 at each time step, 10
+        agent recieves a reward of -1 at each time step, +10 for reaching goal
+
+    Args
+    ----
+    M : Grid side length
 
     Attributes
     ----------
-    observation_space: Joint tuple space of discrete spaces for each agent.
-    action_space:  Joint tuple space of discrete spaces for each agent.
+    observation_space : Joint tuple space of discrete spaces for each agent.
+    action_space :  Joint tuple space of discrete spaces for each agent.
 
     References
     ----------

@@ -8,13 +8,13 @@ import copy
 
 class RepeatedTwoPlayerGame(mgym.MEnv):
 
-    def __init__(self, U, WORD_FOR_ACTION=None):
+    def __init__(self, utility_matrix, word_for_action=None):
         # Utility matrix (list with shape (nA,nA) and tuple entries (reward1,reward2))
-        self.U = U
+        self.utility_matrix = utility_matrix
         self.n = 2  # number of players
         # number of actions per player(rock, paper, or scissors)
-        self.nA = len(self.U)
-        assert len(self.U) == len(self.U[0])
+        self.nA = len(self.utility_matrix)
+        assert len(self.utility_matrix) == len(self.utility_matrix[0])
         # There are no states! It is a single-shot game. To fit env clas we must
         # specify an observation space anyway. Thus we will say there is one state and always
         # one state.
@@ -26,11 +26,11 @@ class RepeatedTwoPlayerGame(mgym.MEnv):
         self.action_space = spaces.Tuple((
             spaces.Discrete(self.nA), spaces.Discrete(self.nA)))
         self.observation_space = spaces.Discrete(self.nS)
-        if WORD_FOR_ACTION == None:
-            self.WORD_FOR_ACTION = {
+        if word_for_action == None:
+            self.word_for_action = {
                 i: 'Action ' + str(i) for i in range(self.nA)}
         else:
-            self.WORD_FOR_ACTION = WORD_FOR_ACTION
+            self.word_for_action = word_for_action
 
     def reset(self, total_iterations=100):
         self.record_outcome = None
@@ -64,9 +64,9 @@ class RepeatedTwoPlayerGame(mgym.MEnv):
             print(' ')
             print('Iteration: ' + str(iter))
             print('Player 1 | action: ' +
-                  self.WORD_FOR_ACTION[action[0]] + ' reward:' + str(rewards[0]))
+                  self.word_for_action[action[0]] + ' reward:' + str(rewards[0]))
             print('Player 2 | action: ' +
-                  self.WORD_FOR_ACTION[action[1]] + ' reward:' + str(rewards[1]))
+                  self.word_for_action[action[1]] + ' reward:' + str(rewards[1]))
             if who_won == None:
                 print('Game is tied.')
             elif who_won == 0:
@@ -75,7 +75,7 @@ class RepeatedTwoPlayerGame(mgym.MEnv):
                 print('Player 2 won!')
 
     def _get_rewards(self, action):
-        return self.U[action[0]][action[1]]
+        return self.utility_matrix[action[0]][action[1]]
 
     def show_utility(self):
-        print(self.U)
+        print(self.utility_matrix)

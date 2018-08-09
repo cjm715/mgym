@@ -12,10 +12,10 @@ class StagHuntEnv(repeatedgame.RepeatedTwoPlayerGame):
     '''
 
     def __init__(self):
-        WORD_FOR_ACTION = {0: 'STAG',
+        word_for_action = {0: 'STAG',
                            1: 'HARE'}
-        U = [[(2, 2), (0, 1)],
-             [(1, 0), (1, 1)]]
+        utility_matrix = [[(2, 2), (0, 1)],
+                          [(1, 0), (1, 1)]]
 
         super(StagHuntEnv, self).__init__(
-            U, WORD_FOR_ACTION=WORD_FOR_ACTION)
+            utility_matrix, word_for_action=word_for_action)

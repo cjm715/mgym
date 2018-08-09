@@ -12,10 +12,10 @@ class BattleOfTheSexesEnv(repeatedgame.RepeatedTwoPlayerGame):
     '''
 
     def __init__(self):
-        WORD_FOR_ACTION = {0: 'OPERA',
+        word_for_action = {0: 'OPERA',
                            1: 'FOOTBALL'}
-        U = [[(3, 2), (0, 0)],
-             [(0, 0), (2, 3)]]
+        utility_matrix = [[(3, 2), (0, 0)],
+                          [(0, 0), (2, 3)]]
 
         super(BattleOfTheSexesEnv, self).__init__(
-            U, WORD_FOR_ACTION=WORD_FOR_ACTION)
+            utility_matrix, word_for_action=word_for_action)

@@ -13,10 +13,10 @@ class PrisonersDilemmaEnv(repeatedgame.RepeatedTwoPlayerGame):
     '''
 
     def __init__(self):
-        WORD_FOR_ACTION = {0: 'COOPERATE',
+        word_for_action = {0: 'COOPERATE',
                            1: 'DEFECT'}
-        U = [[(3, 3), (0, 5)],
-             [(5, 0), (1, 1)]]
+        utility_matrix = [[(3, 3), (0, 5)],
+                          [(5, 0), (1, 1)]]
 
         super(PrisonersDilemmaEnv, self).__init__(
-            U, WORD_FOR_ACTION=WORD_FOR_ACTION)
+            utility_matrix, word_for_action=word_for_action)

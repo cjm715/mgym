@@ -12,12 +12,12 @@ class RockPaperScissorsEnv(repeatedgame.RepeatedTwoPlayerGame):
     '''
 
     def __init__(self):
-        WORD_FOR_ACTION = {0: 'ROCK',
+        word_for_action = {0: 'ROCK',
                            1: 'PAPER',
                            2: 'SCISSORS'}
-        U = [[(0, 0), (-1, 1),  (1, -1)],
-             [(1, -1),  (0, 0),  (-1, 1)],
-             [(-1, 1), (1, -1),   (0, 0)]]
+        utility_matrix = [[(0, 0), (-1, 1),  (1, -1)],
+                          [(1, -1),  (0, 0),  (-1, 1)],
+                          [(-1, 1), (1, -1),   (0, 0)]]
 
         super(RockPaperScissorsEnv, self).__init__(
-            U, WORD_FOR_ACTION=WORD_FOR_ACTION)
+            utility_matrix, word_for_action=word_for_action)

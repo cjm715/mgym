@@ -12,10 +12,10 @@ class MatchingPenniesEnv(repeatedgame.RepeatedTwoPlayerGame):
     '''
 
     def __init__(self):
-        WORD_FOR_ACTION = {0: 'HEADS',
+        word_for_action = {0: 'HEADS',
                            1: 'TAILS'}
-        U = [[(1, -1), (-1, 1)],
-             [(-1, 1), (1, -1)]]
+        utility_matrix = [[(1, -1), (-1, 1)],
+                          [(-1, 1), (1, -1)]]
 
         super(MatchingPenniesEnv, self).__init__(
-            U, WORD_FOR_ACTION=WORD_FOR_ACTION)
+            utility_matrix, word_for_action=word_for_action)

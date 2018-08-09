@@ -11,3 +11,4 @@ _templates
 rebuild.sh
 Makefile
 make.bat
+.coverage

@@ -5,3 +5,9 @@ __pycache__
 .ipynb_checkpoints
 .pytest_cache
 .DS_Store
+_build
+_static
+_templates
+rebuild.sh
+Makefile
+make.bat

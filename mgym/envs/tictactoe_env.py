@@ -57,6 +57,25 @@ class TicTacToeEnv(mgym.MEnv):
     The first index of the tuple represents which agent is acting next and the second
     index is the current state of the game. It is fully observable to both players.
 
+    Example
+    -------
+
+    >>> import gym
+    >>> import mgym
+    >>> import random
+    >>>
+    >>> env = gym.make('TicTacToe-v0')
+    >>> fullobs = env.reset()
+    >>> i = 0
+    >>> while True:
+    ...     print('Player O ') if fullobs[0] else print('Player X')
+    ...     a = random.choice(env.get_available_actions())
+    ...     fullobs,rewards,done,_ = env.step(a)
+    ...     env.render()
+    ...     if done:
+    ...         break
+
+
     """
     metadata = {'render.modes': ['human']}
 

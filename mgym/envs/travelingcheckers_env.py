@@ -81,7 +81,7 @@ class TravelingCheckersEnv(mgym.MEnv):
             (spaces.Discete(self.nA) for _ in range(self.N))
         )
 
-        self.board = Board({})
+        self.board = Board()
         self.pool = Pool({i: Checker(i) for i in range(self.N)})
 
     def reset(self):
@@ -100,68 +100,62 @@ class TravelingCheckersEnv(mgym.MEnv):
         pass
 
 
-# class Checker(object):
-#     """ A Checker lives off and on the board.
-#
-#     Arguments
-#     ---------
-#     onboard : boolean : states if checker is on or off board.
-#     pos : 2 element list of integers and None if off board
-#     des : 2 element list of integers and None if off board
-#
-#     Example
-#     -------
-#     >>> ch = Checker(False)
-#     >>> ch
-#     Checker(False,None,None)
-#     >>> ch.add([1, 2],[3, 4])
-#     >>> ch
-#     Checker(True,[1, 2],[3, 4])
-#     >>> ch.remove()
-#     >>> ch
-#     Checker(False,None,None)
-#
-#
-#     """
-#
-#     def __init__(self, onboard, pos=None, des=None):
-#         self._onboard = onboard
-#         if self._onboard == True:
-#             if (pos == None or des == None):
-#                 raise Exception('Specify position and destination of checker.')
-#
-#         self._pos = pos
-#         self._des = des
-#
-#     def remove(self):
-#         """ Removes checker from board. """
-#         if not self._onboard:
-#             raise Except('Can not remove checker when off board')
-#         self._pos = None
-#         self._des = None
-#         self._onboard = False
-#
-#     def get_state(self):
-#         return (self._onboard, self._pos, self._des)
-#
-#     def add(self, pos=None, des=None):
-#         if self._onboard:
-#             raise Except('Can not add checker when already on board')
-#
-#         self._pos = pos
-#         self._des = des
-#         self._onboard = True
-#
-#     def move(self, action):
-#         if self._onboard:
-#             self._pos[0] = self._pos[0] + MOVEMENT[action][0]
-#             self._pos[1] = self._pos[1] + MOVEMENT[action][1]
-#         else:
-#             raise Exception('Checker is off board.')
-#
-#     def __repr__(self):
-#         return 'Checker({},{},{})'.format(self._onboard, self._pos, self._des)
-#
+class Board(object):
+    """ Board container object
+
+    Arguments
+    ---------
+        M : int : size of board
+        checkers : dict (default = {}): dictionary of checkers with key as id 
+        and value as Checker object. 
+
+    """
+
+    def __init__(self, M, checkers=None):
+
+        if checkers = None:
+            checkers = {}
+        self.checkers = checkers
+
+    def add(self, new_checkers):
+        """ new_checkers is a dictionary of Checkers to be added to 
+        self.checkers """
+        self.checkers.update(new_checkers)
+
+    def pop(self, checker_id_list):
+        return_dict = {}
+        for id in checker_id_list
+            return_dict[id] = self.checkers.pop(id)
+        return return_dict
+
+    def get_observations(self):
+        pass
+
+    def get_board(self):
+        board = np.zeros(self.M, self.M)
+
+    def __repr__(self):
+        return 'Board({}) with {} agent(s)'.format(self.M, self.len(self.checkers))
+
+
+class Pool(object):
+    """ Waiting pool for checkers."""
+
+    def __init__(self, checkers=None):
+        if checkers = None:
+            checkers = {}
+        self.checkers = checkers
+
+    def add(self, new_checkers):
+        """Input is a dictionary of Checkers with items to be added to 
+        self.checkers dictionary """
+        self.checkers.update(new_checkers)
+
+    def pop_random_item(self):
+        random_key = random.choice(self.checkers.keys())
+        random_value = self.checkers.pop(random_key)
+        return random_key, random_value
+
 
 class Checker(object):
     """ A Checker lives off and on the board.

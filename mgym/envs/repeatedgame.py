@@ -15,9 +15,7 @@ class RepeatedTwoPlayerGame(mgym.MEnv):
         # number of actions per player(rock, paper, or scissors)
         self.nA = len(self.U)
         assert len(self.U) == len(self.U[0])
-        # There are no states! It is a single-shot game. To fit env clas we must
-        # specify an observation space anyway. Thus we will say there is one state and always
-        # one state.
+        # This is a one-state MDP.
         self.nS = 1
         self.record_outcome = None
         self.iteration = 0

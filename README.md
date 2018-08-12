@@ -28,7 +28,7 @@ pip install -e .
 * [ ] Fruit-gathering-v0
 * [ ] Chess-v0
 * [ ] Checkers-v0
-* [ ] Snake-v0 ([See OpenAI's Request-for-research](https://blog.openai.com/requests-for-research-2/))
+<!-- * [ ] Snake-v0 ([See OpenAI's Request-for-research](https://blog.openai.com/requests-for-research-2/)) -->
 
 
 ## Examples

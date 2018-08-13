@@ -1,15 +1,10 @@
 # Multi-agent gym environments
 
-<<<<<<< HEAD
-The point of this repository is for educational purposes. I created these environments
-to get a better understanding of MARL (multi-agent reinforcement learning) algorithms
-on relatively simple environments. 
 
-=======
 This repository has a collection of multi-agent [OpenAI gym](https://github.com/openai/gym) environments.
 
 DISCLAIMER: This project is in its early stages --- it is still a work in progress.
->>>>>>> master
+
 
 ## Dependencies
 * `gym`

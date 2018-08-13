@@ -88,8 +88,7 @@ class TravelingCheckersEnv(mgym.MEnv):
         return observations
 
     def step(self, action_agents_dict):
-        """Step environment with action and return observations, rewards, done,
-        and info."""
+        """Step environment with action and return observations, rewards, done, and info."""
 
         return observations, rewards, done, info
 

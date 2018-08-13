@@ -1,9 +1,15 @@
 # Multi-agent gym environments
 
+<<<<<<< HEAD
 The point of this repository is for educational purposes. I created these environments
 to get a better understanding of MARL (multi-agent reinforcement learning) algorithms
 on relatively simple environments. 
 
+=======
+This repository has a collection of multi-agent [OpenAI gym](https://github.com/openai/gym) environments.
+
+DISCLAIMER: This project is in its early stages --- it is still a work in progress.
+>>>>>>> master
 
 ## Dependencies
 * `gym`
@@ -17,14 +23,22 @@ pip install -e .
  ```
 
 ## Environments
-* TicTacToe-v0
-* RockPaperScissors-v0
-* PrisonersDilemma-v0
-* BattleOfTheSexes-v0
-* StagHunt-v0
-* MatchingPennies-v0
+* [x] TicTacToe-v0
+* [x] RockPaperScissors-v0
+* [x] PrisonersDilemma-v0
+* [x] BattleOfTheSexes-v0
+* [x] StagHunt-v0
+* [x] MatchingPennies-v0
+* [ ] TravelingCheckers-v0 ([Introduced in SFI's complexity challenge](https://www.complexityexplorer.org/challenges/1-launch-of-the-complexity-challenges/submissions))
+* [ ] ElFarol-v0
+* [ ] Wolfpack-v0
+* [ ] Fruit-gathering-v0
+* [ ] Chess-v0
+* [ ] Checkers-v0
+* [ ] Snake-v0 ([See OpenAI's Request-for-research](https://blog.openai.com/requests-for-research-2/))
 
-## Example
+
+## Examples
 ```python
 import gym
 import mgym

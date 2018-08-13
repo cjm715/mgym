@@ -26,11 +26,9 @@ pip install -e .
 * [x] MatchingPennies-v0
 * [ ] TravelingCheckers-v0 ([Introduced in SFI's complexity challenge](https://www.complexityexplorer.org/challenges/1-launch-of-the-complexity-challenges/submissions))
 * [x] ElFarol-v0
-* [ ] Wolfpack-v0
-* [ ] Fruit-gathering-v0
-* [ ] Chess-v0
-* [ ] Checkers-v0
-* [ ] Snake-v0 ([See OpenAI's Request-for-research](https://blog.openai.com/requests-for-research-2/))
+* [ ] WolfPack-v0
+* [ ] FruitGathering-v0
+<!-- * [ ] Snake-v0 ([See OpenAI's Request-for-research](https://blog.openai.com/requests-for-research-2/)) -->
 
 
 ## Examples

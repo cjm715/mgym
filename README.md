@@ -28,7 +28,7 @@ pip install -e .
 * [x] ElFarol-v0
 * [ ] WolfPack-v0
 * [ ] FruitGathering-v0
-<!-- * [ ] Snake-v0 ([See OpenAI's Request-for-research](https://blog.openai.com/requests-for-research-2/)) -->
+* [ ] Snake-v0 ([See OpenAI's Request-for-research](https://blog.openai.com/requests-for-research-2/))
 
 
 ## Examples

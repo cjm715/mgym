@@ -30,3 +30,8 @@ register(
     id='MatchingPennies-v0',
     entry_point='mgym.envs:MatchingPenniesEnv',
 )
+
+register(
+    id='ElFarol-v0',
+    entry_point='mgym.envs:ElFarolEnv',
+)

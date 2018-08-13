@@ -67,8 +67,6 @@ class TravelingCheckersEnv(mgym.MEnv):
         self.M
         super(TravelingCheckersEnv).__init__()
 
-        ind_observation_space =
-
         self.observation_space = spaces.Tuple((
             spaces.Tuple((
                 spaces.Discete(self.M),
@@ -106,55 +104,88 @@ class Board(object):
     Arguments
     ---------
         M : int : size of board
-        checkers : dict (default = {}): dictionary of checkers with key as id 
-        and value as Checker object. 
+        checkers : dict (default = {}): dictionary of checkers with key as id
+        and value as Checker object.
 
     """
 
     def __init__(self, M, checkers=None):
-
-        if checkers = None:
+        self.M = M
+        if checkers == None:
             checkers = {}
         self.checkers = checkers
 
     def add(self, new_checkers):
-        """ new_checkers is a dictionary of Checkers to be added to 
+        if isinstance(new_checkers, Checker):
+            new_checkers_list = [new_checkers]
+        else:
+            new_checkers_list = new_checkers
+        """ new_checkers is a dictionary of Checkers to be added to
         self.checkers """
-        self.checkers.update(new_checkers)
+
+        new_checkers_dict = {ch.id: ch for ch in new_checkers_list}
+        self.checkers.update(new_checkers_dict)
 
     def pop(self, checker_id_list):
         return_dict = {}
-        for id in checker_id_list
+        for id in checker_id_list:
             return_dict[id] = self.checkers.pop(id)
         return return_dict
 
-    def get_observations(self):
-        pass
-
     def get_board(self):
-        board = np.zeros(self.M, self.M)
+        board = [[None for _ in range(self.M)] for _ in range(self.M)]
+        for i, ch in self.checkers.items():
+            board[ch.pos[0]][ch.pos[1]] = i
+        return board
 
     def __repr__(self):
-        return 'Board({}) with {} agent(s)'.format(self.M, self.len(self.checkers))
+        return 'Board({})'.format(self.M)
+
+    def __str__(self):
+        board = self.get_board()
+        board_str = ''
+        for i in range(self.M):
+            for j in range(self.M):
+                board_str += '|'
+                if board[i][j] == None:
+                    board_str += ' '
+                else:
+                    board_str += str(board[i][j])
+            board_str += '|\n'
+        return board_str
 
 
 class Pool(object):
     """ Waiting pool for checkers."""
 
     def __init__(self, checkers=None):
-        if checkers = None:
+        if checkers == None:
             checkers = {}
         self.checkers = checkers
 
     def add(self, new_checkers):
-        """Input is a dictionary of Checkers with items to be added to 
-        self.checkers dictionary """
-        self.checkers.update(new_checkers)
+        """ new_checkers is a dictionary of Checkers to be added to
+        self.checkers """
+
+        # Accepts a single checker as input but converts to list with single element
+        if isinstance(new_checkers, Checker):
+            new_checkers_list = [new_checkers]
+        else:
+            new_checkers_list = new_checkers
+
+        for ch in new_checkers_list:
+            ch.reset()
+
+        new_checkers_dict = {ch.id: ch for ch in new_checkers_list}
+        self.checkers.update(new_checkers_dict)
 
     def pop_random_item(self):
         random_key = random.choice(self.checkers.keys())
         random_value = self.checkers.pop(random_key)
         return random_key, random_value
+
+    def __repr__(self):
+        return 'Pool({})'.format(self.checkers.__repr__())
 
 
 class Checker(object):
@@ -162,6 +193,7 @@ class Checker(object):
 
     Arguments
     ---------
+    id: int to specify checker's unique id number.
     pos : 2 element list of integers , default is None
     des : 2 element list of integers , default is None
 
@@ -172,16 +204,16 @@ class Checker(object):
         self.reset(pos, des)
 
     def proposed_pos(self, action):
-        proposed_pos0 = self._pos[0] + MOVEMENT[action][0]
-        proposed_pos1 = self._pos[1] + MOVEMENT[action][1]
+        proposed_pos0 = self.pos[0] + MOVEMENT[action][0]
+        proposed_pos1 = self.pos[1] + MOVEMENT[action][1]
         return [proposed_pos0, proposed_pos1]
 
     def move(self, action):
         self.pos = proposed_pos(self, action)
 
     def reset(self, pos=None, des=None):
-        self._pos = pos
+        self.pos = pos
         self._des = des
 
     def __repr__(self):
-        return 'Checker(pos = {}, des = {})'.format(self._pos, self._des)
+        return 'Checker(id = {}, pos = {}, des = {})'.format(self.id, self.pos, self._des)

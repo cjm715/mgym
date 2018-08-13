@@ -25,7 +25,7 @@ pip install -e .
 * [x] StagHunt-v0
 * [x] MatchingPennies-v0
 * [ ] TravelingCheckers-v0 ([Introduced in SFI's complexity challenge](https://www.complexityexplorer.org/challenges/1-launch-of-the-complexity-challenges/submissions))
-* [ ] ElFarol-v0
+* [x] ElFarol-v0
 * [ ] Wolfpack-v0
 * [ ] Fruit-gathering-v0
 * [ ] Chess-v0

@@ -35,3 +35,8 @@ register(
     id='ElFarol-v0',
     entry_point='mgym.envs:ElFarolEnv',
 )
+
+register(
+    id='Snake-v0',
+    entry_point='mgym.envs:SnakeEnv',
+)

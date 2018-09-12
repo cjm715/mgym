@@ -26,12 +26,11 @@ pip install -e .
 * [x] BattleOfTheSexes-v0
 * [x] StagHunt-v0
 * [x] MatchingPennies-v0
-* [ ] TravelingCheckers-v0 ([Introduced in SFI's complexity challenge](https://www.complexityexplorer.org/challenges/1-launch-of-the-complexity-challenges/submissions))
 * [x] ElFarol-v0
+* [x] Snake-v0 ([See OpenAI's Request-for-research](https://blog.openai.com/requests-for-research-2/))
 * [ ] WolfPack-v0
 * [ ] FruitGathering-v0
-* [x] Snake-v0 ([See OpenAI's Request-for-research](https://blog.openai.com/requests-for-research-2/))
-
+* [ ] TravelingCheckers-v0 ([Introduced in SFI's complexity challenge](https://www.complexityexplorer.org/challenges/1-launch-of-the-complexity-challenges/submissions))
 
 ## Examples
 ```python

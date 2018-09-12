@@ -9,8 +9,8 @@ import pyglet
 from collections import deque
 import random
 
-GRID_HEIGHT = 40
-GRID_WIDTH = 40
+GRID_HEIGHT = 30
+GRID_WIDTH = 30
 GRID_SIZE = 15
 MARGIN = 1
 APPLE_ID = 1
@@ -237,6 +237,7 @@ class Snake(object):
         self.tail = deque()
         self.tail.appendleft((self.x, self.y))
         self.alive = True
+        self.freeapples = 40
 
     def update_head(self, action):
         if self.alive:
@@ -250,10 +251,13 @@ class Snake(object):
             self.y = (self.y + self.yspeed) % GRID_HEIGHT
 
     def update_tail(self, action, on_apple):
+
         if self.alive:
-            if not on_apple:
+            if not (on_apple or self.freeapples > 0):
                 self.tail.pop()
             self.tail.appendleft((self.x, self.y))
+
+        self.freeapples -= 1
 
 
 MIN_COLOR = 50
@@ -263,18 +267,20 @@ class Window(pyglet.window.Window):
     def __init__(self):
         super().__init__(GRID_HEIGHT * GRID_SIZE, GRID_WIDTH * GRID_SIZE)
         self.env = SnakeEnv()
-        pyglet.clock.schedule_interval(self.update, 1.0 / 12.0)
+        pyglet.clock.schedule_interval(self.update, 1.0 / 8.0)
         self.action = [2, 2]
+        self.pause = False
 
     def on_draw(self):
         self.clear()
         self.env.render()
 
     def update(self, dt):
-        # self.action = self.env.action_space.sample()
-        s, r, d, _ = self.env.step(self.action)
-        if self.env.done:
-            self.close()
+        if not self.pause:
+            # self.action = self.env.action_space.sample()
+            s, r, d, _ = self.env.step(self.action)
+            if self.env.done:
+                self.close()
 
     def on_key_press(self, symbol, mod):
 
@@ -295,6 +301,9 @@ class Window(pyglet.window.Window):
             self.action[1] = 2
         if symbol == pyglet.window.key.RIGHT:
             self.action[1] = 3
+
+        if symbol == pyglet.window.key.SPACE:
+            self.pause = not self.pause
 
 
 if __name__ == "__main__":

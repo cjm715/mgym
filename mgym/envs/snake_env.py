@@ -237,7 +237,6 @@ class Snake(object):
         self.tail = deque()
         self.tail.appendleft((self.x, self.y))
         self.alive = True
-        self.freeapples = 40
 
     def update_head(self, action):
         if self.alive:
@@ -253,11 +252,9 @@ class Snake(object):
     def update_tail(self, action, on_apple):
 
         if self.alive:
-            if not (on_apple or self.freeapples > 0):
+            if not (on_apple):
                 self.tail.pop()
             self.tail.appendleft((self.x, self.y))
-
-        self.freeapples -= 1
 
 
 MIN_COLOR = 50

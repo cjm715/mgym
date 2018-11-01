@@ -1,7 +1,7 @@
 # Multi-agent gym environments
 
 
-![snakeclip](snake.gif)
+![snakeclip](snake.jpg)
 
 
 This repository has a collection of multi-agent [OpenAI gym](https://github.com/openai/gym) environments.
@@ -28,9 +28,9 @@ pip install -e .
 * [x] MatchingPennies-v0
 * [x] ElFarol-v0
 * [x] Snake-v0 ([See OpenAI's Request-for-research](https://blog.openai.com/requests-for-research-2/))
-* [ ] WolfPack-v0
+<!-- * [ ] WolfPack-v0
 * [ ] FruitGathering-v0
-* [ ] TravelingCheckers-v0 ([Introduced in SFI's complexity challenge](https://www.complexityexplorer.org/challenges/1-launch-of-the-complexity-challenges/submissions))
+* [ ] TravelingCheckers-v0 ([Introduced in SFI's complexity challenge](https://www.complexityexplorer.org/challenges/1-launch-of-the-complexity-challenges/submissions)) -->
 
 ## Examples
 ```python

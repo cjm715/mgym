@@ -1,8 +1,6 @@
 # Multi-agent gym environments
 
-
 ![snakeclip](snake.jpg)
-
 
 This repository has a collection of multi-agent [OpenAI gym](https://github.com/openai/gym) environments.
 

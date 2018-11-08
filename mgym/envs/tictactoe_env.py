@@ -146,8 +146,9 @@ class TicTacToeEnv(mgym.MEnv):
         s = 0
         for i in range(3):
             for j in range(3):
-                s = self.grid[i, j] + 3 * s
-        return s
+                s = (self.grid[i, j] + 1) + 3 * s
+        # return int(s)
+        return self.grid
 
     def _action_to_grid_indices(self, action):
         i = int(action // 3)

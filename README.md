@@ -4,7 +4,7 @@
 
 This repository has a collection of multi-agent [OpenAI gym](https://github.com/openai/gym) environments.
 
-DISCLAIMER: This project is in its early stages --- it is still a work in progress.
+DISCLAIMER: This project is still a work in progress.
 
 ## Dependencies
 * `gym`
